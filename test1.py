@@ -1,14 +1,26 @@
-# Без аннотации: объявили переменную, 
-# а Python сам определил, какой в ней тип данных.
-birth_year = 1971
+from math import sqrt
+from typing import Union, Optional
 
-# С аннотацией: объявили переменную и указали, 
-# что это переменная только для целых чисел.
-birth_year: int = 1971
 
-# Общий синтаксис аннотирования переменных:
+def add_numbers(Num_1: int, Num_2: int) -> int:
+    return Num_1 + Num_2
 
-# Переменная var_for_bool аннотирована как булева, но в неё передана строка.
-var_for_bool: bool = 'Чистая правда, клянусь!'
 
-print(type(var_for_bool))
+def calculate_square_root(number: Union[int, float]) -> float:
+    return sqrt(number)
+
+
+def calc(your_number: Union[int, float]) -> Optional[str]:
+    if your_number <= 0:
+        return None
+    Root = calculate_square_root(your_number)
+    return ('Мы вычислили квадратный корень из введённого вами '
+            f'числа. Это будет: {Root}')
+
+
+Num_1: int = 10
+Num_2: int = 5
+
+print('Сумма чисел: ', add_numbers(Num_1, Num_2))
+
+print(calc(25.5))
