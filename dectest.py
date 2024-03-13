@@ -1,7 +1,14 @@
 from random import choice, uniform
 
-def format_float_return(...):
-    # Ваш код здесь
+def format_float_return(function):
+    def wrapper():
+        result = function()
+        if isinstance(result, float):
+            return round(result, 2)
+        else:
+            return result
+    return wrapper
+
 
 # Не изменяйте код ниже: он поможет проверить работу декоратора.
 # Декорируем функцию:
@@ -29,6 +36,9 @@ def test_function_2():
     return choice(sequence)
 
 
+
+
+
 # Вызовем задекорированные функции для проверки работы декоратора:
-print(test_function_1())
-print(test_function_2())
+#print(test_function_1())
+#print(test_function_2())
