@@ -5,9 +5,13 @@ class Robot:
     def __init__(self, name):
         self.name = name
 
-    def update_base_battery_status(self, new_status):
+    # Декорируем и изменяем метод update_base_battery_status(),
+    # чтобы менять значение атрибута не в объекте, а в классе:
+    @classmethod
+    def update_base_battery_status(cls, new_status):  # Указываем аргумент cls.
         """Обновляет состояние батареи базовой станции."""
-        self.base_battery_status = new_status
+        # Присваиваем новое значение атрибуту класса.
+        cls.base_battery_status = new_status
 
     def report(self):
         """Печатает в консоли состояние батареи базовой станции."""
@@ -25,8 +29,8 @@ robot2 = Robot('C-3PO')
 robot1.report()
 robot2.report()
 
-# Обновляем статус батареи - но только в одном из роботов:
-robot1.update_base_battery_status(80)
+# Обновляем статус батареи в классе: обращаемся не к объекту, а к классу.
+Robot.update_base_battery_status(80)
 
 # Снова печатаем состояние батареи:
 robot1.report()
