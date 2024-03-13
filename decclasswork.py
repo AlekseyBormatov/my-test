@@ -5,9 +5,9 @@ class Product:
         self.purchase_price = purchase_price
 
     # Опишите свойство profit
-    @classmethod
+    @property
     def profit(self):
-        return self.purchase_price - self.retail_price
+        return self.retail_price - self.purchase_price
 
     # Опишите статический метод average_price()
     @staticmethod
@@ -17,8 +17,8 @@ class Product:
 
     # Опишите свойство information
     @property
-    def information():
-        ...
+    def information(self):
+        return (f'Товар: {self.name}, розничная цена: {self.retail_price}, закупочная цена: {self.purchase_price}')
 
 
 # Данные для проверки, не изменяйте их.
@@ -34,4 +34,7 @@ assortment_prices = [
 
 print(f'Средняя стоимость: {Product.average_price(assortment_prices)}')
 print(f'Прибыль магазина с товара {product_1.name}: {product_1.profit}')
+
+print('--------')
+
 print(f'Информация о товаре {product_1.name}: {product_1.information}')
