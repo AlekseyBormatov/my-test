@@ -5,10 +5,20 @@ class Product:
         self.purchase_price = purchase_price
 
     # Опишите свойство profit
+    @classmethod
+    def profit(self):
+        return self.purchase_price - self.retail_price
 
     # Опишите статический метод average_price()
+    @staticmethod
+    def average_price(list):
+        sum_list = sum(list)
+        return sum_list / len(list)
 
     # Опишите свойство information
+    @property
+    def information():
+        ...
 
 
 # Данные для проверки, не изменяйте их.
