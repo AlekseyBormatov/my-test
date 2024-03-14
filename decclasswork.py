@@ -12,8 +12,7 @@ class Product:
     # Опишите статический метод average_price()
     @staticmethod
     def average_price(list):
-        sum_list = sum(list)
-        return sum_list / len(list)
+        return sum(list) / len(list)
 
     # Опишите свойство information
     @property
