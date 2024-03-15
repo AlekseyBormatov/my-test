@@ -33,7 +33,5 @@ assortment_prices = [
 
 print(f'Средняя стоимость: {Product.average_price(assortment_prices)}')
 print(f'Прибыль магазина с товара {product_1.name}: {product_1.profit}')
-
-print('--------')
-
 print(f'Информация о товаре {product_1.name}: {product_1.information}')
+print(f'Прибыль магазина с товара {product_2.name}: {product_2.profit}')
